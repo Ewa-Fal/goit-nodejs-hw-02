@@ -19,13 +19,7 @@ const schema = Joi.object({
 
 const auth = (req, res, next) => {
   passport.authenticate("jwt", { session: false }, (err, user, info) => {
-    // if (!user || err) {
-    //   return res.status(401).json({
-    //     status: "401 Unauthorized",
-    //     contentType: "application/json",
-    //     responseBody: { message: "Not authorized" },
-    //   });
-    // }
+
     if (err) {
       console.error("Authentication error:", err);
       return res.status(401).json({
@@ -153,10 +147,7 @@ const login = async (req, res, next) => {
 };
 
 const logout = async (req, res, next) => {
-  // check token
-  // find user by _id
-  // if no user return res.json(401)
-  // if user exists delete user token and return success status 204 message
+ 
   try {
     const userId = req.user._id;
     const user = await User.findById(userId);

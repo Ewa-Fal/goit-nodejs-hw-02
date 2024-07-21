@@ -1,13 +1,10 @@
-// Importujemy wymagane moduły
 const mongoose = require("mongoose");
 const app = require("./app");
-require("dotenv").config(); // Wczytujemy zmienne środowiskowe z pliku .env
+require("dotenv").config(); 
 
-// Konfigurujemy port i URI bazy danych
 const MAIN_PORT = process.env.PORT || 3000;
 const uriDb = process.env.DB_URL;
 
-// Sprawdzamy, czy URI bazy danych jest poprawne
 if (!uriDb) {
   console.error("DB_URL is not defined in the environment variables");
   process.exit(1);

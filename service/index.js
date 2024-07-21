@@ -1,4 +1,3 @@
-// const token = require("../passport");
 const Contact = require("./schemas/contact");
 const User = require("./schemas/user");
 
