@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");  // Opcjonalnie, jeśli hashujesz hasła
+const bcrypt = require("bcrypt");  
 
 const userSchema = new mongoose.Schema({
     email: {
@@ -17,7 +17,6 @@ const userSchema = new mongoose.Schema({
     }
 });
 
-// Opcjonalnie, hashowanie hasła przed zapisem
 userSchema.pre("save", async function(next) {
     if (this.isModified("password")) {
         const salt = await bcrypt.genSalt(10);

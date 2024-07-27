@@ -4,12 +4,11 @@ const User = require("../models/user");
 const registerUser = async (req, res) => {
     const { email, password } = req.body;
 
-    // Wygenerowanie URL do gravatara
     const avatarURL = gravatar.url(email, { s: "200", r: "pg", d: "mm" });
 
     const newUser = new User({
         email,
-        password,  // Pamiętaj o zahashowaniu hasła w modelu użytkownika lub tutaj
+        password,
         avatarURL
     });
 

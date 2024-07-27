@@ -17,7 +17,6 @@ app.use(logger(formatsLogger));
 app.use(cors());
 app.use(express.json());
 
-// Middleware do obsługi statycznych plików
 app.use("/avatars", express.static(path.join(__dirname, "public/avatars")));
 
 app.use("/api/contacts", contactsRouter);
@@ -32,7 +31,6 @@ app.use((err, req, res, next) => {
   res.status(500).json({ message: err.message });
 });
 
-// Połączenie z bazą danych
 connectDB();
 
 module.exports = app;
