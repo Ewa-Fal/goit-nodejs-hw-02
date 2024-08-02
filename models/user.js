@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");  
+const bcrypt = require("bcrypt");
 
 const userSchema = new mongoose.Schema({
     email: {
@@ -14,6 +14,14 @@ const userSchema = new mongoose.Schema({
     avatarURL: {
         type: String,
         required: true
+    },
+    verify: {
+        type: Boolean,
+        default: false
+    },
+    verificationToken: {
+        type: String,
+        required: [true, "Verify token is required"]
     }
 });
 
